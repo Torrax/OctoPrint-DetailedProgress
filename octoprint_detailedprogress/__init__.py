@@ -209,9 +209,7 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 				'Fil. change {changeFilamentIn}'
 			],
 			messages=[
-				'{completion:.2f}% complete    ETA {ETA}',
-				'ETL {printTimeLeft}',
-				'{accuracy} accuracy'
+				'{completion:.2f}% Completed     ETA {ETA} Remaining:{printTimeLeft}  {accuracy} accuracy'
 			]
 		)
 
