@@ -210,9 +210,8 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 				'Fil. change {changeFilamentIn}'
 			],
 			messages=[
-				'{completion:.2f}% complete',
+				'{completion:.2f}% complete    ETA {ETA}',
 				'ETL {printTimeLeft}',
-				'ETA {ETA}',
 				'{accuracy} accuracy'
 			]
 		)
@@ -230,12 +229,12 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 
 				# version check: github repository
 				type="github_release",
-				user="tpmullan",
+				user="Torrax",
 				repo="OctoPrint-DetailedProgress",
 				current=self._plugin_version,
 
 				# update method: pip
-				pip="https://github.com/tpmullan/OctoPrint-DetailedProgress/archive/{target_version}.zip"
+				pip="https://github.com/Torrax/OctoPrint-DetailedProgress/archive/{target_version}.zip"
 			)
 		)
 
