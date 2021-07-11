@@ -48,7 +48,7 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 			ip = self._get_host_ip()
 			if not ip:
 				return
-			self._printer.commands("M70 (Octoprint Controled   IP {})".format(ip))
+			self._printer.commands("M70 ( Octoprint Controled  IP {}                        NewLine)".format(ip))
 		elif event == Events.PRINT_PAUSED:
 			if self._repeat_timer != None:
 				self._repeat_timer.cancel()
