@@ -75,7 +75,7 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 			message = self._get_next_message(currentData)
 			self._logger.info("Message: {0}".format(message))
 			
-			self._printer.commands("M70 P10 ({})".format(message))
+			self._printer.commands("M70 ({})".format(message))
 			if self._M73:
 				self._update_progress(currentData)
 
@@ -192,7 +192,7 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 	##~~ Settings
 	def get_settings_defaults(self):
 		return dict(
-			time_to_change="20",
+			time_to_change="15",
 			eta_strftime="%-m/%d %-I.%M%p",
 			etl_format="{hours:02d}h{minutes:02d}m{seconds:02d}s",
 			print_done_message="-Octoprint  Control-  Printing Complete",
@@ -200,7 +200,7 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 			use_M73_R=False,
 			show_ip_at_startup=True,
 			all_messages=[
-				'Completed: {completion:.2f}%    Remaining: {printTimeLeft}ETA: {ETA}   {filename}',
+				'Completed: {completion:02d.2f}%    Remaining: {printTimeLeft}ETA: {ETA}   {filename}',
 				'ETL {printTimeLeft}', 
 				'{accuracy} accuracy', 
 				'Layer {layerProgress}', 
