@@ -151,7 +151,6 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 		self._last_message += 1
 		if self._last_message >= len(self._messages):
 			self._last_message = 0
-		currentData["progress"]["completion"] = ("{:02d}".format(currentData["progress"]["completion"])) ###################################
 		return message.format(
 			completion=(currentData["progress"]["completion"],
 			printTime=currentData["progress"]["printTimeString"],
