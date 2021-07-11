@@ -48,7 +48,7 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 			ip = self._get_host_ip()
 			if not ip:
 				return
-			self._printer.commands("M70 (-Octoprint  Control-  IP {}                      Web Prints & Slicing)".format(ip))
+			self._printer.commands("M70 P15 (-Octoprint  Control-  IP {}                      Web Prints & Slicing)".format(ip))
 		elif event == Events.PRINT_PAUSED:
 			if self._repeat_timer != None:
 				self._repeat_timer.cancel()
@@ -75,7 +75,7 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 			message = self._get_next_message(currentData)
 			self._logger.info("Message: {0}".format(message))
 			
-			self._printer.commands("M70 ({})".format(message))
+			self._printer.commands("M70 P10 ({})".format(message))
 			if self._M73:
 				self._update_progress(currentData)
 
@@ -192,7 +192,7 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 	##~~ Settings
 	def get_settings_defaults(self):
 		return dict(
-			time_to_change="10",
+			time_to_change="20",
 			eta_strftime="%-m/%d %-I.%M%p",
 			etl_format="{hours:02d}h{minutes:02d}m{seconds:02d}s",
 			print_done_message="-Octoprint  Control-  Printing Complete",
