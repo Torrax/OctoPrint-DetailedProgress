@@ -200,7 +200,7 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 			use_M73_R=False,
 			show_ip_at_startup=True,
 			all_messages=[
-				'Completed: {completion:.2f}%    Remaining: {printTimeLeft}ETA: {ETA}   {filename}',
+				'Completed: {("{:02d}".format((completion:.2f)))}%    Remaining: {printTimeLeft}ETA: {ETA}   {filename}',
 				'ETL {printTimeLeft}', 
 				'{accuracy} accuracy', 
 				'Layer {layerProgress}', 
@@ -208,7 +208,7 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 				'Fil. change {changeFilamentIn}'
 			],
 			messages=[
-				'Completed: {completion:.2f}%    Remaining: {printTimeLeft}ETA: {ETA}   {filename}'
+				'Completed: {("{:02d}".format((completion:.2f)))}%    Remaining: {printTimeLeft}ETA: {ETA}   {filename}'
 			]
 		)
 
