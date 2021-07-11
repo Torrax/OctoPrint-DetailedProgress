@@ -41,14 +41,14 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 				self._repeat_timer = None
 			self._logger.info("Printing stopped. Detailed progress stopped.")
 			message = self._settings.get(["print_done_message"])
-			self._printer.commands("M117 {}".format(message))
+			self._printer.commands("M70 ({})".format(message))
 			currentData = {"progress": {"completion": 100, "printTimeLeft": 0}}
 			self._update_progress(currentData)
 		elif event == Events.CONNECTED and self._settings.get(["show_ip_at_startup"]):
 			ip = self._get_host_ip()
 			if not ip:
 				return
-			self._printer.commands("M117 IP {}".format(ip))
+			self._printer.commands("M70 (IP {})".format(ip))
 		elif event == Events.PRINT_PAUSED:
 			if self._repeat_timer != None:
 				self._repeat_timer.cancel()
@@ -75,7 +75,7 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 			message = self._get_next_message(currentData)
 			self._logger.info("Message: {0}".format(message))
 			
-			self._printer.commands("M117 {}".format(message))
+			self._printer.commands("M70 ({})".format(message))
 			if self._M73:
 				self._update_progress(currentData)
 
