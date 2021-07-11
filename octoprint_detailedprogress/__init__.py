@@ -152,7 +152,7 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 		if self._last_message >= len(self._messages):
 			self._last_message = 0
 		return message.format(
-			completion=("{:02d}".format(currentData["progress"]["completion"])),
+			completion=(currentData["progress"]["completion"],
 			printTime=currentData["progress"]["printTimeString"],
 			printTimeLeft=currentData["progress"]["printTimeLeftString"],
 			ETA=currentData["progress"]["ETA"],
@@ -191,6 +191,7 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 
 	##~~ Settings
 	def get_settings_defaults(self):
+		completion = ("{:02d}".format(10))
 		return dict(
 			time_to_change="15",
 			eta_strftime="%-m/%d %-I.%M%p",
