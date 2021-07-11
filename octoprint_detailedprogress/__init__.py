@@ -208,8 +208,7 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 				'Fil. change {changeFilamentIn}'
 			],
 			messages=[
-				'
-				d: {completion:.2f}%    Remaining: {printTimeLeft}ETA: {ETA}   {filename}'
+				'Completed: {completion:.2f}%    Remaining: {printTimeLeft}ETA: {ETA}   {filename}'
 			]
 		)
 
