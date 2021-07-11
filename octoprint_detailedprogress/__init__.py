@@ -195,7 +195,7 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 			time_to_change="10",
 			eta_strftime="%-m/%d %-I.%M%p",
 			etl_format="{hours:02d}h{minutes:02d}m{seconds:02d}s",
-			print_done_message="Print Done",
+			print_done_message="-Octoprint  Control-  Printing Complete",
 			use_M73=True,
 			use_M73_R=False,
 			show_ip_at_startup=True,
@@ -209,7 +209,7 @@ class DetailedProgress(octoprint.plugin.EventHandlerPlugin,
 				'Fil. change {changeFilamentIn}'
 			],
 			messages=[
-				'{completion:.2f}% Completed     ETA {ETA} Remaining:{printTimeLeft}  {accuracy} accuracy'
+				'{completion:.2f}% Completed     ETA:{ETA} Remaining:{printTimeLeft}  {filename}'
 			]
 		)
 
